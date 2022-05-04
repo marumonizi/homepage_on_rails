@@ -4,6 +4,9 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 ruby '3.1.2'
 
 gem 'rails', '~> 6.1.4', '>= 6.1.4.7'
+gem 'net-smtp'
+gem 'net-imap'
+gem 'net-pop'
 gem 'pg'
 gem 'puma', '~> 5.0'
 gem 'sass-rails', '>= 6'
