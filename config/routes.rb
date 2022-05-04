@@ -1,3 +1,3 @@
 Rails.application.routes.draw do
-  root 'astatic_pages#home'
+  root 'application#hello'
 end
