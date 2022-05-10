@@ -1,0 +1,143 @@
+<%= provide(:title, "ホーム") %>
+<div class="first">
+  <div class="box">
+    <div class="bgImg src1"></div>
+    <div class="bgImg src2"></div>
+    <div class="bgImg src3"></div>
+    <div class="bgImg src4"></div>
+    <div class="boxString">
+      <!-- <h2>湧き水で育った魚</h2> -->
+      <p>
+      自然豊かな<br>
+      長野県 安曇野市 で<br>
+      虹鱒　岩魚　信州サーモン　を<br>
+      加工、販売しています。
+      </p>
+    </div>
+  </div>
+</div>
+
+<h3 id="section1">取り扱う魚</h3>
+
+<div class="main-content">
+  <div class="fish"> 
+    <div class="fish-name">
+      <ruby><rb>虹鱒</rb><rp>（</rp><rt>ニジマス</rt><rp>）</rp></ruby>
+    </div>
+    <div>
+      <img class="fish-img" src="/assets/nizimasu.jpg" alt="っっっk">
+    </div>
+  </div>
+  <div class="fish"> 
+    <div class="fish-name">
+      <ruby><rb>岩魚</rb><rp>（</rp><rt>イワナ</rt><rp>）</rp></ruby>
+    </div>
+    <div>
+      <img class="fish-img" src="/assets/nizimasu.jpg" alt="っっっk">
+    </div>
+  </div>
+  <div class="fish"> 
+    <div class="fish-name">
+      <span><ruby><rb></rb>信州</rb><rp>（</rp><rt>しんしゅう</rt><rp>）</rp></ruby></span><span>サーモン</span>
+    </div>
+    <div> 
+      <img class="fish-img" src="/assets/nizimasu.jpg" alt="っっっk">
+    </div>
+  </div>
+</div>
+
+<h3 id="section2">水のこだわり</h3>
+  <div class="second-content">
+    <div class="sub-text fade">
+      アルプスの麓に湧き出た<br>
+      湧き水で育てているから<br>
+      臭みが一切ない。<br>
+      養殖だからこその<br>
+      美味しさをお楽しみいただける。
+    </div>
+  </div>
+
+<h3 id="section3">商品一覧</h3>
+<div class="third-content ">
+  <div class="product">
+    <div class="product-name">塩焼き</div>
+    <div>
+      <img class="product-img" src="/assets/sioyaki.jpg" alt="kkk">
+    </div>
+    <div class="product-price">２００円/１匹〜</div>
+  </div>
+  <div class="product">
+    <div class="product-name">甘露煮</div>
+    <div>
+      <img class="product-img" src="/assets/sioyaki.jpg" alt="kkk">
+    </div>
+    <div class="product-price">２００円/１匹〜</div>
+  </div>
+  <div class="product">
+    <div class="product-name">フライ</div>
+    <div>
+      <img class="product-img" src="/assets/sioyaki.jpg" alt="kkk">
+    </div>
+    <div class="product-price">２００円/１匹〜</div>
+  </div>
+</div>
+
+<div class="buy fade">
+  <span>ご購入は</span><span>電話またはメールで</span><span>お問い合せください。</span>
+</div>
+
+<!-- jquery -->
+
+<script>
+  $(function () {
+      $('.js-btn').on('click', function () {        // js-btnクラスをクリックすると、
+    $('.menu , .btn-line').toggleClass('open');
+    })
+  });
+</script>
+
+<script>
+function checkBreakPoint() {
+	w = $(window).width();
+	if (w <= 600) {
+		// スマホ向け（767px以下のとき）
+		$('.main-content,.third-content').not('.slick-initialized').slick({
+			//スライドさせる
+			dots: true,
+      centerMode: true,
+      centerPadding: '20%',
+      slidesToShow: 1
+		});
+	} else {
+		// PC向け
+		$('.main-content,.third-content').slick('unslick');
+	}
+}
+// ウインドウがリサイズする度にチェック
+$(window).resize(function(){
+	checkBreakPoint();
+});
+// 初回チェック
+checkBreakPoint();
+
+</script>
+<script>
+  (window.onload = function() {
+  
+    // フェードイン処理
+    jQuery(window).scroll(function (){
+      jQuery(".fade").each(function(){
+        var winheight = jQuery(window).height();
+        var posi = jQuery(this).offset().top;
+        var scroll = jQuery(window).scrollTop();
+        if (scroll + winheight > posi){
+          jQuery(this).addClass("fadein");
+        } else {
+          //　スクロールで画面上部に戻った際に要素を非表示にしたい場合は、下記の行のコメントを外し有効にしてください。
+          // jQuery(this).removeClass("fadein");
+        }
+      });
+    });
+  
+  })(); 
+</script>

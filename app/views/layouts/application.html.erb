@@ -1,16 +1,43 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Hhomepage</title>
+    <title>虹鱒の養殖・加工の穂高共同食品 | <%= yield(:title) %></title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+
+    <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
+    <script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
   </head>
 
+  <header>
+    <%= render 'layouts/header' %>
+  </header>
   <body>
     <%= yield %>
   </body>
+
+  <footer>
+    <%= render 'layouts/footer' %>
+  </footer>
+  <div class="copyright">
+    <p><span>© 2021 HOTAKA KYOUDOU SYOKUHIN</span><span>（Co. Ltd.）All Rights Reserved</span></p>
+  </div>
 </html>
+
+
+<%
+=begin%>
+ ハンバーガーメニュー 
+<%
+=end%>
+<script>
+  $(function () {
+      $('.js-btn').on('click', function () {        // js-btnクラスをクリックすると、
+    $('.menu , .btn-line').toggleClass('open');
+    })
+  });
+</script>
