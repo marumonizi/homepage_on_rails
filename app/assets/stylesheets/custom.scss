@@ -29,7 +29,7 @@ body {
   z-index: 1000;  
 }
 
-.btn{
+.menu-btn{
   position: fixed;
   top: 16px;
   right: 16px;
@@ -115,7 +115,6 @@ header{
   position: fixed;
   right: 0;
   left: 0;
-  border-bottom: 1px solid #333;
 }
 
 header h1{
@@ -141,10 +140,13 @@ header h2 {
   padding-bottom: 3px;
   overflow:hidden;
 }
+.nav-list {
+  border-bottom: 1px solid #333;
+}
 
 /* メイン */
 .first{
-  padding-top: 58px;
+  padding-top: 50px;
 }
 
 /* --- 全体のBOX定義 ---------------------------------------- */
@@ -333,6 +335,12 @@ footer{
   display: none!important;
 }
 
+.login {
+  font-size: 15px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
 /* コピーライト */
 .copyright p {
   font-size: 0.5rem;
@@ -448,13 +456,91 @@ footer{
   transform: translate(0px, 0px);
 } 
 
+* {
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+}
+::before , ::after {
+	box-sizing: inherit;
+}
+button {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	border-radius: 0;
+	background: transparent;
+	color: inherit;
+	vertical-align: middle;
+	text-align: inherit;
+	font: inherit;
+	-webkit-appearance: none;
+	appearance: none;
+}
+
+// フォーム
+.create_form {
+  text-align: center;
+}
+.form {
+  display: inline-block;
+  text-align: left;
+}
+
+input[type="text"] {
+  width: 200px;
+  height: 40px;
+}
+input[type="password"] {
+  width: 200px;
+  height: 40px;
+}
+
+.create_btn {
+  text-align: center;
+}
+
+.btn {
+  margin-top: 30px;
+}
+
+// アカウント登録
+.create_user {
+  font-size: 30px;
+  text-align: center;
+  padding-top: 100px;
+  margin-bottom: 30px;
+}
+
+// フラッシュメッセージ
+.flash-notifications {
+  font-weight: bold;
+  color: white;
+  text-align: center;  
+
+  .notice {
+    background-color: #ADD8E6;
+  }
+
+  .danger {
+    background-color: #ff8800de;
+  }
+}
+
+// ユーザー
+.user {
+  padding-top: 60px;
+  text-align: center;
+}
+
+
 /* タブレット */
 @media only screen and (min-width:600px) {
   header {
     position: initial;
     padding-top: 10px;
   }
-  .btn {
+  .menu-btn {
 		display: none;
 	}
   .menu {
@@ -552,6 +638,14 @@ footer{
     padding-top: 0;
     margin-top: 10px;
   }
+  .create_user {
+    font-size: 30px;
+    text-align: center;
+    margin-bottom: 30px;
+  }
+  .user {
+    padding-top: 20px;
+  }
 }
 
 /* PC*/
@@ -566,24 +660,3 @@ footer{
   }
 }
 
-* {
-	box-sizing: border-box;
-	margin: 0;
-	padding: 0;
-}
-::before , ::after {
-	box-sizing: inherit;
-}
-button {
-	margin: 0;
-	padding: 0;
-	border: 0;
-	border-radius: 0;
-	background: transparent;
-	color: inherit;
-	vertical-align: middle;
-	text-align: inherit;
-	font: inherit;
-	-webkit-appearance: none;
-	appearance: none;
-}
