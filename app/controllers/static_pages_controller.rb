@@ -1,7 +1,7 @@
 class StaticPagesController < ApplicationController
   def home
   end
-  
+
   def about
   end
 
@@ -9,6 +9,5 @@ class StaticPagesController < ApplicationController
   end
 
   def access
-  end 
-    
+  end
 end
