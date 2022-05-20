@@ -1,7 +1,9 @@
 require "test_helper"
 
 class UserCreateTest < ActionDispatch::IntegrationTest
-  test "invalid user " do
+
+  # 名前が空
+  test "invalid user name " do
     get new_user_path
     assert_response :success
     assert_no_difference 'User.count' do
@@ -12,7 +14,8 @@ class UserCreateTest < ActionDispatch::IntegrationTest
     assert_template 'users/new'
   end
   
-  test "invalid password user " do
+  # パスワードが不適切
+  test "invalid password" do
     get new_user_path
     assert_response :success
     assert_no_difference 'User.count' do
@@ -23,6 +26,31 @@ class UserCreateTest < ActionDispatch::IntegrationTest
     assert_template 'users/new'
   end
 
+  # パスワードが不一致
+  test "invalid password combination " do
+    get new_user_path
+    assert_response :success
+    assert_no_difference 'User.count' do
+      post users_path, params: { user: { name: "test",
+                                         password: "123456",
+                                         password_confirmation: "password" } }
+    end
+    assert_template 'users/new'
+  end
+
+  # すでに登録されている名前
+  test "arlady name" do
+    get new_user_path
+    assert_response :success
+    assert_no_difference 'User.count' do
+      post users_path, params: { user: { name: "admin",
+                                         password: "password",
+                                         password_confirmation: "password" } }
+    end
+    assert_template 'users/new'
+  end
+
+  # アカウント作成成功
   test "valid new user " do
     get new_user_path
     assert_response :success
