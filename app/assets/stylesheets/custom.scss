@@ -18,6 +18,7 @@ body {
   color:black;
   background-color: white;
   transition: .3s;
+  padding: 0;
 }
 
 .menu-list {
@@ -26,13 +27,16 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  z-index: 1000;  
+  z-index: 1000;
+  :hover {
+    border-bottom: 1px solid black;
+  }
 }
 
 .menu-btn{
   position: fixed;
-  top: 16px;
-  right: 16px;
+  top: 10px;
+  right: 11px;
   width: 25px;
   height: 25px;
   z-index: 10;
@@ -66,6 +70,7 @@ body {
 }
 .menu.open {
   right: 0;
+  border-bottom: 1px dotted black;
 }
 .btn-line.open {
   background-color: transparent;
@@ -84,11 +89,11 @@ body {
   transform: rotate(-45deg);
 }
 
-* {
-	box-sizing: border-box;
-	margin: 0;
-	padding: 0;
-}
+// * {
+// 	box-sizing: border-box;
+// 	margin: 0;
+// 	padding: 0;
+// }
 ::before , ::after {
 	box-sizing: inherit;
 }
@@ -115,34 +120,36 @@ header{
   position: fixed;
   right: 0;
   left: 0;
-}
-
-header h1{
-  height: 20%;
-  text-align: center;
-  font-weight: normal;
-  font-size: 170%;
-  letter-spacing: 3px;
-  padding: 0px;
-  margin: 0;
-}
-
-header a {
-  color: #333;
-  text-decoration: none;
-}
-
-header h2 {
-  text-align: center;
-  font-size: 70%;
-  font-weight: normal;;
-  margin: 0;
-  padding-bottom: 3px;
-  overflow:hidden;
-}
-.nav-list {
   border-bottom: 1px solid #333;
+  h1{
+    height: 20%;
+    // text-align: center;
+    font-weight: normal;
+    font-size: 20px;
+    letter-spacing: 3px;
+    padding: 0px;
+    display: inline-block;
+  }
+  a {
+    color: #333;
+    text-decoration: none;
+  }
+  h2 {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    font-size: 70%;
+    font-weight: normal;
+    padding-bottom: 3px;
+  }
 }
+
+.title {
+  margin-left: 5px;
+}
+
+
+
 
 /* メイン */
 .first{
@@ -178,18 +185,18 @@ header h2 {
 
 /* --- 段差で背景画像のアニメーションを実行 ----------------- */
 .box .src1 {
-  background-image : image-url('DSC00382.JPG');   /* 背景の画像を指定 */
+  background-image : image-url('DSC00382.jpg');   /* 背景の画像を指定 */
 }
 .box .src2 {
-  background-image : image-url('DSC01619.JPG');   /* 背景の画像を指定 */
+  background-image : image-url('top-img2.jpg');   /* 背景の画像を指定 */
   animation-delay  : 5s;
 }
 .box .src3 {
-  background-image : image-url('DSC00423.JPG');   /* 背景の画像を指定 */
+  background-image : image-url('news.jpg');   /* 背景の画像を指定 */
   animation-delay  : 10s;
 }
 .box .src4 {
-  background-image : image-url('DSC00359.JPG');   /* 背景の画像を指定 */
+  background-image : image-url('DSC00359.jpg');   /* 背景の画像を指定 */
   animation-delay  : 15s;
 }
 
@@ -221,17 +228,114 @@ header h2 {
   font-size: 120%;
   height: 400px;
   min-height: 300px;
+  span {
+    font-size: 110%;
+  }
 }
 
 h3{
   font-size: 150%;
   padding: 0;
   text-align: center;
-  margin-top: 10%;
+  margin-top: 50px;
   margin-bottom: 15px;
   font-weight: normal;
   clear: both;
   letter-spacing: 5px;
+  span {
+    font-size: 80%;
+  }
+}
+
+// お知らせ欄
+.news {
+  width: 80%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.news-btn {
+  width: 100%;
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 20px;
+  a {
+    color: white;
+    background-color: rgb(29, 142, 255);
+    text-decoration: none;
+    padding: 10px;
+    border-radius: 25px;
+  }
+}
+
+.news-content {
+  width: 90%;
+  height: 50px;
+  color: #333;
+  margin: auto;
+  text-decoration: none;
+  display: block;
+  border-bottom: 1px dotted black;
+  &:hover {
+    background : rgba(228, 232, 236, 0.418);
+  }
+  &:visited {
+    color: #551A8B;
+  }
+}
+.news-date {
+  color: #333;
+  font-size: 13px;
+  display: inline-block;
+  margin-right: 10%;
+}
+
+.news-title {
+  width:  100%;
+  display: inline-block;
+  margin-left: 5px;
+}
+
+.new-arrival {
+  font-size: 12px;
+  color: black;
+  // background-color: #333;
+  border: 1px solid black;
+  border-radius: 25px;
+  padding: 0 5px;
+  display: inline-block;
+  margin-right: 10px;
+  // margin-top: 5px;
+  float: right;
+}
+
+// お知らせ詳細
+.news-detail {
+  margin-right: auto;
+  margin-left: auto;
+  text-align: center;
+  width: 90%;
+}
+
+.news-img {
+  width: 100%;
+  margin-right: auto;
+  margin-left: auto;
+  display: block;
+}
+
+.link-tab {
+  margin-top: 30px;
+}
+.link {
+  font-size: 110%;
+  margin-top: 10px;
+  text-align: center;
+  a {
+    // color: black;
+    text-decoration: none;
+  }
 }
 
 .main-content,
@@ -258,7 +362,7 @@ h3{
 }
 
 .second-content{
-  background-image: image-url('mizu.jpg');
+  background-image: image-url('mizu.png');
   background-size: cover;
   width: 100%;
   margin-top: 15px;
@@ -348,11 +452,6 @@ footer{
 }
 
 /* 会社概要 */
-.about-company{
-  font-size: 100%;
-  margin-bottom: 4%;
-  padding-top: 70px;
-}
 .kaisha {
   margin-right: auto;
   margin-left: auto;
@@ -372,9 +471,6 @@ footer{
 }
 
 /* お問い合わせ */
-.contact {
-  padding-top: 70px;
-}
 .mail {
   width: 100%;
   margin-top: 100px;
@@ -400,18 +496,6 @@ footer{
 }
 
 /* アクセス */
-.access{
-  padding-top: 70px;
-}
-
-.access h5 {
-  font-size: 200%;
-  font-weight: normal;
-  margin-top: 11%;
-  margin-bottom: 1%;
-  text-align: center;
-}
-
 .map {
   width: 80%;
   display: block;
@@ -485,10 +569,11 @@ button {
 .form {
   display: inline-block;
   text-align: left;
+  width: 80%;
 }
 
 input[type="text"] {
-  width: 200px;
+  
   height: 40px;
 }
 input[type="password"] {
@@ -504,12 +589,95 @@ input[type="password"] {
   margin-top: 30px;
 }
 
+.title-form{
+  padding: 10px 5%;
+  margin-bottom: 20px;
+}
+
+.content-form { 
+  height: 300px;
+}
+
 // アカウント登録
 .create_user {
   font-size: 30px;
   text-align: center;
   padding-top: 100px;
   margin-bottom: 30px;
+}
+
+// ユーザー
+.user {
+  padding-top: 90px;
+  text-align: center;
+}
+
+.users {
+  width: 80%;
+  height: 40px;
+  margin-left: auto;
+  margin-right: auto;
+  // text-align: center;
+  border-top: 1px solid black;
+  border-bottom: 1px solid black;
+  .user-name {
+    font-size: 20px;
+    float: left;
+    margin-left: 20%;
+    margin-top: auto;
+    margin-bottom: auto;
+    a {
+      color: #333;
+      text-decoration: none;
+    }
+  }
+}
+
+// ページネーション
+.pagination{
+  margin: 20px auto 0;
+  width: 50%;
+  display: flex;
+  justify-content: center;
+  span{
+    text-align: center;
+    width: 50px;
+    :hover{
+      background-color:#f3f3f3;
+    }
+    a{
+      color: rgb(13, 110, 253);
+      text-decoration: none;
+      display: block;
+      width: 100%;
+      height: 100%;
+      :hover{
+        background-color: #f3f3f3;
+      }
+    }
+  }
+}
+
+.current{
+  color: black;
+}
+
+.gap{
+  background-color: white !important;
+}
+
+
+// ページ共通
+.sp-page{
+  padding-top: 70px;
+}
+
+.page-title {
+  font-size: 200%;
+  font-weight: normal;
+  margin-top: 11%;
+  margin-bottom: 30px;
+  text-align: center;
 }
 
 // フラッシュメッセージ
@@ -527,12 +695,6 @@ input[type="password"] {
   }
 }
 
-// ユーザー
-.user {
-  padding-top: 90px;
-  text-align: center;
-}
-
 
 /* タブレット */
 @media only screen and (min-width:600px) {
@@ -540,6 +702,10 @@ input[type="password"] {
     position: initial;
     padding-top: 10px;
   }
+  .title {
+    text-align: center;
+  }
+
   .menu-btn {
 		display: none;
 	}
@@ -602,15 +768,6 @@ input[type="password"] {
   .product-price{
     padding-right: 20%;
   }
-  .boxString {
-    line-height: 450%;
-    letter-spacing: 0.1em;
-    font-size: 150%;
-    height: 60%;
-  }
-  .box {
-    height: 750px;
-  }
   .buy {
     font-size: 200%;
   }
@@ -631,13 +788,14 @@ input[type="password"] {
   .footer-list a :nth-child(n+1) {
     padding-left: 10px;
   }
-  .about-company h3,
-  .mail,
-  .mail h3,
-  .access h5 {
+  .sp-page {
+    padding-top: 30px;
+  }
+  .page-title {
     padding-top: 0;
     margin-top: 10px;
   }
+  // ユーザー登録
   .create_user {
     font-size: 30px;
     text-align: center;
@@ -645,6 +803,13 @@ input[type="password"] {
   }
   .user {
     padding-top: 20px;
+  }
+  // お知らせ欄
+  .news-content {
+    width: 400px;
+  }
+  .news-img {
+    width: 500px;
   }
 }
 
@@ -657,6 +822,9 @@ input[type="password"] {
   .map{
     width: 60%;
     height: 700px;
+  }
+  .news-content {
+    width: 500px;
   }
 }
 

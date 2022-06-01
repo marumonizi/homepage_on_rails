@@ -14,7 +14,7 @@ class AccessLimitTest < ActionDispatch::IntegrationTest
     get user_path(@user)
     assert_redirected_to login_path
     follow_redirect!
-    assert_not flash.empty?
+    assert_select 'div.danger', text:"ログインしてください"
     assert_template 'sessions/new'
   end
   
@@ -24,7 +24,6 @@ class AccessLimitTest < ActionDispatch::IntegrationTest
     get user_path(@user)
     assert_redirected_to root_path
     follow_redirect!
-    assert_not flash.empty?
     assert_template 'static_pages/home'
   end
   
@@ -32,6 +31,7 @@ class AccessLimitTest < ActionDispatch::IntegrationTest
   test "should get show when logged in" do
     log_in_as(@user)
     get user_path(@user)
+    assert_select 'div.page-title', text: @user.name
     assert_template 'users/show'
   end
 
@@ -40,6 +40,9 @@ class AccessLimitTest < ActionDispatch::IntegrationTest
   test "should redirect index when not logged in" do
     get users_path
     assert_redirected_to login_path
+    follow_redirect!
+    assert_select 'div.danger', text:"ログインしてください"
+    assert_template 'sessions/new'
   end
   
   # 非管理者
@@ -47,6 +50,9 @@ class AccessLimitTest < ActionDispatch::IntegrationTest
     log_in_as(@other_user)
     get users_path
     assert_redirected_to login_path
+    follow_redirect!
+    assert_select 'div.danger', text:"管理用アカウントでログインしてください"
+    assert_template 'sessions/new'
   end
 
   # 管理者
@@ -54,5 +60,32 @@ class AccessLimitTest < ActionDispatch::IntegrationTest
     log_in_as(@user)
     get users_path
     assert_template 'users/index'
+    assert_select 'div.user-name', count: 3
+  end
+
+  #マイクロポスト
+
+  # new
+  test "should redirect get new when not logged in" do
+    get new_micropost_path
+    assert_redirected_to login_path
+    follow_redirect!
+    assert_select 'div.danger', text:"ログインしてください"
+    assert_template 'sessions/new'
+  end
+
+  test "should redirect get new when logged in not admin user" do
+    log_in_as @other_user
+    get new_micropost_path
+    assert_redirected_to login_path
+    follow_redirect!
+    assert_select 'div.danger', text:"管理用アカウントでログインしてください"
+    assert_template 'sessions/new'
+  end
+  
+  test "should get new when logged in admin user" do
+    log_in_as @user
+    get new_micropost_path
+    assert_template 'microposts/new'
   end
 end

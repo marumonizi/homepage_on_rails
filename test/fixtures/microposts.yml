@@ -1,0 +1,39 @@
+home_has_not:
+  title: "home have not"
+  content: "test_content"
+  created_at: <%= 4.years.ago %>
+  image: "test/jpg"
+  user: admin_user
+
+
+old:
+  title: "most_old"
+  content: "test_content"
+  created_at: <%= 2.years.ago %>
+  image: "test/jpg"
+  user: admin_user
+
+second_old:
+  title: "second_old"
+  content: "test_content"
+  created_at: <%= 2.hours.ago %>
+  user: admin_user
+
+third_old:
+  title: "third_old"
+  content: "test_content"
+  created_at: <%= 2.minutes.ago %>
+  user: admin_user
+
+fourth_old:
+  title: "third_old"
+  content: "test_content"
+  created_at: <%= 2.minutes.ago %>
+  user: admin_user
+
+most_recent:
+  title: "most_old"
+  content: "test_content"
+  created_at: <%= Time.zone.now %>
+  image: "test/jpg"
+  user: admin_user

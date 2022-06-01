@@ -3,7 +3,7 @@
 <div class="campany-name">(株)穂高共同食品</div>
 
 <div class="campany-add">
-  〒399-8303 長野県 安曇野市 穂高3990 
+  <span>〒399-8303</span> <span>長野県</span> <span>安曇野市</span> <span>穂高 3990</span>
   <a href="https://goo.gl/maps/wurY39T4fejSJKax8" target="_blank" ><i class="fas fa-map-marker-alt"></i></a>
 </div>
 
@@ -17,9 +17,11 @@
 
 <nav class="footer-list">
     <%= link_to "TOP", "/" %>
+    <%= link_to "お知らせ一覧", "/microposts" %>
     <%= link_to "会社概要", "/about" %>
     <%= link_to "お問い合わせ", "/contact" %>
     <%= link_to "アクセス", "/access" %>
+    
 </div>
 <div class="login">
   <% if logged_in? %>

@@ -1,0 +1,16 @@
+<div class="news">
+  <h3 id="section1">お知らせ</h3>
+  <div class="news-btn"><%= link_to "お知らせ投稿", '/microposts/new' %></div>
+  <% @microposts.first(5).each do |micropost| %>
+    <%= link_to micropost, class:"news-content" do %>
+      <div class="news-date"><%= micropost.created_at.to_s(:datetime_jp) %></div>
+      <div class="news-title">
+        <%= micropost.title%>
+        <% if micropost.created_at + 1.week > Date.today %>
+          <div class="new-arrival">new</div>
+        <% end %>
+      </div>
+    <% end %>
+  <% end %>
+  <div class="link"><%= link_to "お知らせ一覧はこちら", 'microposts' %></div>
+</div>

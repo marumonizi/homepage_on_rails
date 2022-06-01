@@ -1,89 +1,17 @@
 <%= provide(:title, "ホーム") %>
-<div class="first">
-  <div class="box">
-    <div class="bgImg src1"></div>
-    <div class="bgImg src2"></div>
-    <div class="bgImg src3"></div>
-    <div class="bgImg src4"></div>
-    <div class="boxString">
-      <!-- <h2>湧き水で育った魚</h2> -->
-      <p>
-      自然豊かな<br>
-      長野県 安曇野市 で<br>
-      虹鱒　岩魚　信州サーモン　を<br>
-      加工、販売しています。
-      </p>
-    </div>
-  </div>
-</div>
 
-<h3 id="section1">取り扱う魚</h3>
+<div class="content">
+  <%= render 'first' %>
 
-<div class="main-content">
-  <div class="fish"> 
-    <div class="fish-name">
-      <ruby><rb>虹鱒</rb><rp>（</rp><rt>ニジマス</rt><rp>）</rp></ruby>
-    </div>
-    <div>
-      <%= image_tag "nizimasu.jpg", class: "fish-img" %>
-    </div>
-  </div>
-  <div class="fish"> 
-    <div class="fish-name">
-      <ruby><rb>岩魚</rb><rp>（</rp><rt>イワナ</rt><rp>）</rp></ruby>
-    </div>
-    <div>
-      <%= image_tag "nizimasu.jpg", class: "fish-img" %>
-    </div>
-  </div>
-  <div class="fish"> 
-    <div class="fish-name">
-      <span><ruby><rb></rb>信州</rb><rp>（</rp><rt>しんしゅう</rt><rp>）</rp></ruby></span><span>サーモン</span>
-    </div>
-    <div> 
-      <%= image_tag "nizimasu.jpg", class: "fish-img" %>
-    </div>
-  </div>
-</div>
+  <%= render 'news' %>
 
-<h3 id="section2">水のこだわり</h3>
-  <div class="second-content">
-    <div class="sub-text">
-      アルプスの麓に湧き出た<br>
-      湧き水で育てているから<br>
-      臭みが一切ない。<br>
-      養殖だからこその<br>
-      美味しさをお楽しみいただける。
-    </div>
-  </div>
+  <%= render 'main' %>
 
-<h3 id="section3">商品一覧</h3>
-<div class="third-content ">
-  <div class="product">
-    <div class="product-name">塩焼き</div>
-    <div>
-      <%= image_tag "sioyaki.jpg", class: "product-img" %>
-    </div>
-    <div class="product-price">２００円/１匹〜</div>
-  </div>
-  <div class="product">
-    <div class="product-name">甘露煮</div>
-    <div>
-      <%= image_tag "sioyaki.jpg", class: "product-img" %>
-    </div>
-    <div class="product-price">２００円/１匹〜</div>
-  </div>
-  <div class="product">
-    <div class="product-name">フライ</div>
-    <div>
-      <%= image_tag "sioyaki.jpg", class: "product-img" %>
-    </div>
-    <div class="product-price">２００円/１匹〜</div>
-  </div>
-</div>
+  <%= render 'second' %>
 
-<div class="buy">
-  <span>ご購入は</span><span>電話またはメールで</span><span>お問い合せください。</span>
+  <%= render 'third' %>
+
+  <%= render 'buy' %>
 </div>
 
 
