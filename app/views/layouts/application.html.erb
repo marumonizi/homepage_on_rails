@@ -13,7 +13,7 @@
     <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
     <script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.9.0/css/all.css">
   </head>
 
   <header>
@@ -21,6 +21,7 @@
   </header>
   
   <body>
+    <div class="space"></div>
     <%= yield %>
     <%= debug(params) if Rails.env.development? %>
   </body>
@@ -37,7 +38,7 @@
 <script>
   $(function () {
       $('.js-btn').on('click', function () {        // js-btnクラスをクリックすると、
-    $('.menu , .btn-line').toggleClass('open');
+    $('.menu , .btn-line, body').toggleClass('open');
     })
   });
 </script>

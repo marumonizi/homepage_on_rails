@@ -1,0 +1,21 @@
+<div class="sp-page">
+  <div class="page-title">お知らせ</div>
+  <div class="news-detail">
+    <%= @micropost.title %>
+    <% if @micropost.image?%>
+      <%= image_tag @micropost.image.url, class:"news-img" %>
+    <% else %>
+      <%= image_tag "news.jpg", class:"news-img" %>
+    <% end %>
+    <%= simple_format(@micropost.content) %>
+  </div>
+
+  <div class="link-tab">
+    <div class="link">
+      <%= link_to "TOPへ戻る", '/' %>
+    </div>
+    <div class="link">
+      <%= link_to "お知らせ一覧へ戻る", '/microposts' %>
+    </div>
+  </div>
+</div>
