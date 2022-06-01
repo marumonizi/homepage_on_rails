@@ -1,6 +1,6 @@
 <div class="sp-page"> 
   <div class="page-title"><%= @user.name %></div>
-  <% if @user.admin %>
+  <% if @user.admin? %>
     <div class="news-btn"><%= link_to "お知らせ投稿", '/microposts/new' %></div>
   <% end %>
 </div>

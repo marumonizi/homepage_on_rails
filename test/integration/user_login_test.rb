@@ -81,7 +81,6 @@ class UserLoginTest < ActionDispatch::IntegrationTest
     assert_redirected_to root_path
     follow_redirect!
     assert_template 'static_pages/home'
-    assert_select 'a[href=?]', login_path, count: 1
   end
 
   

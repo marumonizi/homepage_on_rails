@@ -7,11 +7,15 @@
   <div class="mb-3, form">
     <%= form_with(url: login_path, scope: :session, local: true) do |f| %>
 
-      <%= f.label :アカウント名, class:"form-label" %>
-      <%= f.text_field :name, class:"form-control" %>
+      <div class="name-form">
+        <%= f.label :アカウント名, class:"form-label" %>
+        <%= f.text_field :name, class:"form-control" %>
+      </div>
     
-      <%= f.label :パスワード, class:"form-label" %>
-      <%= f.password_field :password, class:"form-control" %>
+      <div class="password-form">
+        <%= f.label :パスワード, class:"form-label" %>
+        <%= f.password_field :password, class:"form-control" %>
+      </div>
       
       <%= f.label :remember_me, class:"form-label" do %>
         <span>自動ログインを有効にする</span>

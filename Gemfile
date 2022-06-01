@@ -18,6 +18,7 @@ gem 'kaminari'
 gem 'rails-i18n'
 gem 'carrierwave'
 gem 'mini_magick'
+gem 'dotenv-rails'
 
 group :development, :test do
   gem 'sqlite3'
