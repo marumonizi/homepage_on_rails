@@ -26,7 +26,5 @@
 <div class="login">
   <% if logged_in? %>
     <%= link_to "ログアウト", "/logout", method: :delete %>
-  <%else%>
-    <%= link_to "従業員用", "/login" %>
   <% end %>
 </div>

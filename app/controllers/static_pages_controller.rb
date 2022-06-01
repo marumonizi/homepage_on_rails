@@ -2,6 +2,7 @@ class StaticPagesController < ApplicationController
   
   def home
     @microposts = Micropost.all
+    @current_user = current_user
   end
 
   def about
@@ -12,4 +13,5 @@ class StaticPagesController < ApplicationController
 
   def access
   end
+
 end

@@ -35,8 +35,8 @@ body {
 
 .menu-btn{
   position: fixed;
-  top: 10px;
-  right: 11px;
+  top: 15px;
+  left: 20px;
   width: 25px;
   height: 25px;
   z-index: 10;
@@ -123,31 +123,46 @@ header{
   border-bottom: 1px solid #333;
   h1{
     height: 20%;
-    // text-align: center;
     font-weight: normal;
     font-size: 20px;
     letter-spacing: 3px;
     padding: 0px;
-    display: inline-block;
+    // display: inline-block;
   }
   a {
     color: #333;
     text-decoration: none;
   }
   h2 {
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
+    // width: 200px;
+    // display: block;
     font-size: 70%;
     font-weight: normal;
     padding-bottom: 3px;
+    // margin: 0;
   }
 }
 
 .title {
-  margin-left: 5px;
+  text-align: right;
+  // float: right;
+  width: 100%;
+  display: inline-block;
+  padding-top: 10px;
+  margin-right: 10px;
+  // position: relative;
+  padding-right: 10px;
 }
 
+.logout-link {
+  // display: inline-block;
+  // float: right;
+  // margin-top: 25px;
+  // margin-right: 50px;
+  position: absolute;
+  left: 50px;
+  top: 20px;
+}
 
 
 
@@ -568,12 +583,22 @@ button {
 }
 .form {
   display: inline-block;
+  text-align: center;
+  width: 60%px;
+}
+
+.name-form,
+.password-form {
   text-align: left;
-  width: 80%;
+  width: 200px;
+  margin-right: auto;
+  margin-left: auto;
 }
 
 input[type="text"] {
-  
+  // margin-right: auto;
+  // margin-left: auto;
+  // width: 200px;
   height: 40px;
 }
 input[type="password"] {
@@ -596,6 +621,7 @@ input[type="password"] {
 
 .content-form { 
   height: 300px;
+
 }
 
 // アカウント登録
@@ -682,14 +708,18 @@ input[type="password"] {
 
 // フラッシュメッセージ
 .flash-notifications {
+  width: 100%;
+  // position: fixed;
+  z-index: 999;
   font-weight: bold;
   color: white;
   text-align: center;  
-
+  font-size: 15px;
+  margin: 0;
   .notice {
-    background-color: #ADD8E6;
+    // width: 100%;
+    background-color:rgba(117, 169, 246, 0.9);
   }
-
   .danger {
     background-color: #ff8800de;
   }
@@ -700,10 +730,11 @@ input[type="password"] {
 @media only screen and (min-width:600px) {
   header {
     position: initial;
-    padding-top: 10px;
+    // padding-top: 10px;
   }
   .title {
     text-align: center;
+    // padding: auto;
   }
 
   .menu-btn {
@@ -796,14 +827,14 @@ input[type="password"] {
     margin-top: 10px;
   }
   // ユーザー登録
-  .create_user {
-    font-size: 30px;
-    text-align: center;
-    margin-bottom: 30px;
-  }
-  .user {
-    padding-top: 20px;
-  }
+  // .create_user {
+  //   font-size: 30px;
+  //   text-align: center;
+  //   margin-bottom: 30px;
+  // }
+  // .user {
+  //   padding-top: 20px;
+  // }
   // お知らせ欄
   .news-content {
     width: 400px;
@@ -815,6 +846,9 @@ input[type="password"] {
 
 /* PC*/
 @media only screen and (min-width:1000px) {
+  .box {
+    height: 700px;
+  }
   .fish-name,
   .product-name {
     font-size: 3vw;

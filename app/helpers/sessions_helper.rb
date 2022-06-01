@@ -20,7 +20,7 @@ module SessionsHelper
 
   # 現在ログインしているユーザーか判別
   def current_user?(user)
-    user = current_user
+    user == current_user
   end
 
   # ログインしているかどうか

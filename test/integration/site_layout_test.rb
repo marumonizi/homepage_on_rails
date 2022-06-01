@@ -18,10 +18,11 @@ class SiteLayoutTest < ActionDispatch::IntegrationTest
     assert_select 'a[href=?]', microposts_path, count: 2
     assert_select 'a.news-content', count:5
     assert_select 'a[href=?]', logout_path
+    assert_select 'a[href=?]', new_micropost_path
     delete logout_path
     follow_redirect!
     assert_template 'static_pages/home'
-    assert_select 'a[href=?]', login_path
+    assert_select 'a[href=?]', new_micropost_path, count:0
   end
 
   # マイクロポスト詳細

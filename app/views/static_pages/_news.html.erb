@@ -1,6 +1,8 @@
 <div class="news">
   <h3 id="section1">お知らせ</h3>
-  <div class="news-btn"><%= link_to "お知らせ投稿", '/microposts/new' %></div>
+  <% if logged_in? && current_user.admin? %>
+    <div class="news-btn"><%= link_to "お知らせ投稿", '/microposts/new' %></div>
+  <% end %>
   <% @microposts.first(5).each do |micropost| %>
     <%= link_to micropost, class:"news-content" do %>
       <div class="news-date"><%= micropost.created_at.to_s(:datetime_jp) %></div>
