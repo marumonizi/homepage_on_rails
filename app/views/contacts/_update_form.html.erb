@@ -1,0 +1,20 @@
+<div class="create_user">
+  返信
+</div>
+<div class="create_form">
+  <div class="form">
+    <%= form_with(model: @contact, local: true) do |f| %>
+
+      <%= render 'shared/error_form', object: f.object %>
+
+      <div class="message-form">
+        <%= f.label :返信内容, class:"form-label" %>
+        <%= f.text_area :reply, class:"form-control", autocomplete:"off" %>
+      </div>
+
+      <div class="create_btn">
+        <%= f.submit "送信", class:"btn btn-primary mb-3", type: 'button', onclick: 'submit();' %>
+      </div>
+    <% end %>
+  </div>
+</div>

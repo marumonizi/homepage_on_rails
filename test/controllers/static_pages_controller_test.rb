@@ -11,9 +11,9 @@ class StaticPagesControllerTest < ActionDispatch::IntegrationTest
     assert_template  'static_pages/about'
   end
 
-  test "should get contact" do
-    get contact_path
-    assert_template  'static_pages/contact'
+  test "should get inquiry" do
+    get inquiry_path
+    assert_template  'static_pages/inquiry'
   end
 
   test "should get accsess" do

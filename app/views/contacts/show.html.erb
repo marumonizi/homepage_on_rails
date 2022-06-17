@@ -1,0 +1,31 @@
+<%= provide(:title, "お問い合わせ") %>
+<div class="sp-page">
+  <div class="contact-detail">
+    <div class="page-title">お問い合わせ</div>
+      <div class="contact-name"><%= @contact.name %>様</div>
+      <div class="contact-message">
+        <p>お問合せ内容</p>
+        <div class="message"><%= simple_format(@contact.message) %></div>
+      </div>
+    </div>
+
+      <% if @contact.replyed? %>
+        <div class="contact-reply">
+          <p>返信内容</p>
+          <div class="reply"><%= @contact.reply %></div>
+        </div>
+      <% else %>
+        <%= render 'update_form' %>
+      <% end %>
+
+
+    <div class="link-tab">
+      <div class="link">
+        <%= link_to "TOPへ戻る", '/' %>
+      </div>
+      <div class="link">
+        <%= link_to "お問い合わせ一覧へ戻る", '/contacts' %>
+      </div>
+    </div>
+  </div>
+</div>

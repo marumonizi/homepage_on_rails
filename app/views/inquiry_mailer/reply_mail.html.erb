@@ -1,0 +1,23 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta content="text/html; charset=UTF-8" />
+  </head>
+  <body>
+    <p><%= @contact.name %> 様 この度はお問い合わせありがとうございました。</p>
+    <p>早速ですがご質問への回答をさせていただきます。</p>
+    <p>▼点線より下が回答となります</p>
+    <p>ーーーーーーーーーーーーーーーーー</p> 
+    <p><%= @contact.reply %></p>
+    <p>ーーーーーーーーーーーーーーーーー</p> 
+    <p>不明な点や、他にご質問等あればお気軽にこちらのメールまでご返信していただけますと幸いです。</p>
+
+    <p>お問合せ内容</p>
+    <p>▷お名前：<%= @contact.name%></p>
+    <p>▷メールアドレス：<%= @contact.email%></p>
+    <p>▷お問い合わせ種類：<%= @contact.category%></p> 
+    <p>▷お問い合わせ内容：<%= @contact.message%></p> 
+    <%
+  #  <%= link_to "穂高共同食品HP", # %>
+  </body>
+</html>

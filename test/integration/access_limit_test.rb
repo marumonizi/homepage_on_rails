@@ -88,4 +88,61 @@ class AccessLimitTest < ActionDispatch::IntegrationTest
     get new_micropost_path
     assert_template 'microposts/new'
   end
+
+
+  # お問い合わせ
+  
+  # 一覧
+
+  test "should redirect index when not login" do
+    get contacts_path
+    assert_redirected_to login_url
+    follow_redirect!
+    assert_select 'div.danger', text:"管理用アカウントでログインしてください"
+    assert_template 'sessions/new'
+  end
+  
+  test "should redirect index when not admin user" do
+    log_in_as(@other_user)
+    get contacts_path
+    assert_redirected_to login_url
+    follow_redirect!
+    assert_select 'div.danger', text:"管理用アカウントでログインしてください"
+    assert_template 'sessions/new'
+  end
+  
+  test "should get index when admin user" do
+    log_in_as(@user)
+    get contacts_path
+    assert_template 'contacts/index'
+    assert_select 'div.contacts-name', conunt:5
+  end
+
+  #詳細
+  test "sshould redirect index when not login" do
+    @contact = contacts(:first_contact)
+    get contact_path(@contact)
+    assert_redirected_to login_url
+    follow_redirect!
+    assert_select 'div.danger', text:"管理用アカウントでログインしてください"
+    assert_template 'sessions/new'
+  end
+
+  test "sshould redirect index when not admin user" do
+    log_in_as(@other_user)
+    @contact = contacts(:first_contact)
+    get contact_path(@contact)
+    assert_redirected_to login_url
+    follow_redirect!
+    assert_select 'div.danger', text:"管理用アカウントでログインしてください"
+    assert_template 'sessions/new'
+  end
+
+  test "sshould get index when admin user" do
+    log_in_as(@user)
+    @contact = contacts(:first_contact)
+    get contact_path(@contact)
+    assert_template 'contacts/show'
+
+  end
 end

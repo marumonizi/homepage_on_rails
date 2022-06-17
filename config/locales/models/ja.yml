@@ -3,6 +3,7 @@ ja:
     models:
       user: ユーザー
       micropost: マイクロポスト
+      contact: お問い合わせ
     attributes:
       user:
         name: アカウント名
@@ -11,3 +12,8 @@ ja:
       micropost:
         title: タイトル
         content: 内容
+      contact:
+        name: お名前
+        email: メールアドレス
+        message: お問合せ内容
+        category: お問い合わせ種類

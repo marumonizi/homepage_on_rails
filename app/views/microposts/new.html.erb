@@ -7,15 +7,20 @@
     <%= form_with(model: @micropost, local: true) do |f| %>
 
       <%= render 'shared/error_form', object: f.object %>
+      <div class="title-form">
+        <%= f.label :タイトル, class:"form-label" %>
+        <%= f.text_field :title, class:"form-control", placeholder: "100文字以内"  %>
+      </div>
 
-      <%= f.label :タイトル, class:"form-label" %>
-      <%= f.text_field :title, class:"form-control title-form" %>
+      <div class="content-form">
+        <%= f.label :投稿内容, class:"form-label" %>
+        <%= f.text_area :content, class:"form-control", placeholder: "1000文字以内" %>
+      </div>
 
-      <%= f.label :投稿内容, class:"form-label" %>
-      <%= f.text_area :content, class:"form-control content-form"%>
-      
-      <%= f.label :画像アップロード, class:"form-label" %>
-      <%= f.file_field :image, accept: 'image/png,image/gif,image/jpeg' %>
+      <div class="file_field">
+        <%= f.label :画像アップロード, class:"form-label" %>
+        <%= f.file_field :image, accept: 'image/png, image/gif, image/jpeg' %>
+      </div>
     
       <div class="create_btn">
         <%= f.submit "投稿", class:"btn btn-primary mb-3" %>

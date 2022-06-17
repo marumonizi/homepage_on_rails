@@ -1,0 +1,31 @@
+<%= provide(:title, "お問い合わせ一覧") %>
+<div class="sp-page">
+  <div class="contact">
+    <div class="page-title">お問い合わせ一覧</div>
+    <% @contacts.each do |contact| %>
+      <%= link_to contact, class:"contact-content" do %>
+        <div class="contact-date">
+          <%= contact.created_at.to_s(:datetime_jp) %>
+        </div>
+        <div class="contact-info">
+          <div class="contact-main">
+            <div class="contacts-name"><%= contact.name %> 様</div>
+            <div class="contact-category"><%= contact.category %></div>
+          </div>
+          <div class="contact-replyed">
+            <% if contact.replyed? %>
+              <div class="replyed-true"><i class="fa-solid fa-check"></i></div>
+            <% else %>
+              <div class="replyed-false">未返信</div>
+            <% end %>
+          </div>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+
+  <%= paginate @contacts %>
+  <div class="link">
+    <%= link_to "TOPへ戻る", '/' %>
+  </div>
+</div>                          

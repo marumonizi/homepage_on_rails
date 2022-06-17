@@ -1,0 +1,35 @@
+recent_contact:
+  name: "recent test user"
+  email: "recent@example.com"
+  message: "test inquiry contact message"
+  created_at: <%= Time.zone.now %>
+  category: "商品について"
+
+first_contact:
+  name: "test user"
+  email: "test@example.com"
+  message: "test inquiry contact message"
+  created_at: <%= 1.minutes.ago %>
+  category: "商品について"
+
+second_contact:
+  name: "second test user"
+  email: "test2@example.com"
+  message: "test inquiry contact message"
+  created_at: <%= 1.hours.ago %>
+  category: "商品について"
+
+third_contact:
+  name: "third test user"
+  email: "test3@example.com"
+  message: "test inquiry contact message"
+  created_at: <%= 1.weeks.ago %>
+  category: "商品について"
+
+old_contact:
+  name: "old test user"
+  email: "test3@example.com"
+  message: "test inquiry contact message"
+  created_at: <%= 1.years.ago %>
+  category: "商品について"
+  

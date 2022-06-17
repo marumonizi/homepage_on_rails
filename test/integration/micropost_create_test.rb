@@ -36,6 +36,7 @@ class MicropostCreateTest < ActionDispatch::IntegrationTest
     end
     assert_redirected_to root_url
     follow_redirect!
+    assert_select 'div.notice', '投稿されました'
     assert_template 'static_pages/home'
     assert_select 'a[href=?]', microposts_path(@micropost)
   end

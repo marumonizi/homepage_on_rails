@@ -3,6 +3,7 @@ body {
   font-family: 'Noto Serif JP', serif;
   margin-top: 0;
   padding: 0;
+  min-height: 100vh;
 }
 
 /* ヘッダー */
@@ -299,6 +300,7 @@ h3{
     color: #551A8B;
   }
 }
+
 .news-date {
   color: #333;
   font-size: 13px;
@@ -315,13 +317,11 @@ h3{
 .new-arrival {
   font-size: 12px;
   color: black;
-  // background-color: #333;
   border: 1px solid black;
   border-radius: 25px;
   padding: 0 5px;
   display: inline-block;
   margin-right: 10px;
-  // margin-top: 5px;
   float: right;
 }
 
@@ -373,7 +373,7 @@ h3{
 .product-name {
   /* margin-top: 5%; */
   text-align: center;
-  font-size: 7vw;
+  font-size: 20px;
 }
 
 .second-content{
@@ -397,9 +397,9 @@ h3{
 
 
 .product-price {
-  margin-right: 25px;
+  // margin-right: 25px;
   text-align: right;
-  font-size: 20px;
+  font-size: 15px;
 }
 
 .buy{
@@ -470,8 +470,9 @@ footer{
 .kaisha {
   margin-right: auto;
   margin-left: auto;
-  font-size: 100%;
+  font-size: 16px;
   width: 95%;
+  max-width: 600px;
   margin-bottom: 8%;
 }
 .kaisha th,
@@ -580,15 +581,22 @@ button {
 // フォーム
 .create_form {
   text-align: center;
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
 }
 .form {
   display: inline-block;
   text-align: center;
-  width: 60%px;
+  width: 100%;
 }
 
 .name-form,
-.password-form {
+.password-form,
+.email-form,
+.content-form,
+.message-form,
+.category-form {
   text-align: left;
   width: 200px;
   margin-right: auto;
@@ -596,14 +604,56 @@ button {
 }
 
 input[type="text"] {
-  // margin-right: auto;
-  // margin-left: auto;
-  // width: 200px;
   height: 40px;
 }
 input[type="password"] {
-  width: 200px;
   height: 40px;
+}
+
+#contact_message,
+#micropost_content{
+  height: 200px;
+}
+
+#contact_category {
+  width: 100%;
+  height: 30px;
+  display: inline-block;
+  margin-top: 5px;
+  // float: right;
+}
+
+
+.title-form {
+  width: 90%;
+  margin-bottom: 20px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.content-form { 
+  width: 90%;
+  min-width: 200px;
+  margin-bottom: 20px;
+}
+
+.name-form,
+.message-form,
+.password-form,
+.email-form,
+.category-form {
+  width: 60%;
+  min-width: 200px;
+  margin-bottom: 20px;
+}
+
+
+.alert {
+  text-align: left;
+  width: 300px;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 5px;
 }
 
 .create_btn {
@@ -611,16 +661,24 @@ input[type="password"] {
 }
 
 .btn {
+  width: 150px;
   margin-top: 30px;
 }
 
-.title-form{
-  padding: 10px 5%;
-  margin-bottom: 20px;
+.consent {
+  background-color: rgba(244, 238, 183, 0.389);
+  width: 99%;
+  h1, h2{
+    font-size: 20px;
+  }
 }
-
-.content-form { 
-  height: 300px;
+.personal-info{
+  h1{
+    font-size: 20px;
+  }
+  p {
+   font-style: 15px;
+  }
 
 }
 
@@ -657,6 +715,110 @@ input[type="password"] {
       text-decoration: none;
     }
   }
+}
+
+// お問い合わせ
+.contact {
+  width: 80%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.contact-content {
+  width: 90%;
+  // height: 100px;
+  color: #333;
+  margin: auto;
+  text-decoration: none;
+  display: block;
+  border-bottom: 1px dotted black;
+  &:hover {
+    background : rgba(228, 232, 236, 0.418);
+  }
+  &:visited {
+    color: #551A8B;
+  }
+}
+
+.contact-info {
+  width:  100%;
+  display: block;
+  margin-left: 5px;
+}
+
+.contacts-name {
+  font-size: 15px;
+  display: block;
+}
+
+.contact-date {
+  color: #333;
+  font-size: 13px;
+  display: inline-block;
+  margin-top: 15px;
+}
+
+.contact-main {
+  display: inline-block;
+}
+
+.contact-replyed {
+  display: inline-block;
+  float: right;
+  padding-right: 10px;
+  padding-top: 10px;
+}
+
+// お問い合わせ詳細
+.contact-detail {
+  text-align: center;
+  width: 80%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.contact-name {
+  font-size: 20px;
+  display: block;
+}
+
+.contact-message {
+  max-width: 500px;
+  margin-left: auto;
+  margin-right: auto;
+  p {
+    text-align: left;
+    margin: 10px 0 5px 0
+  }
+  .message {
+    padding: 5px;
+    border-top: 1px dotted #000;
+    border-bottom: 1px dotted #000;
+    p {
+      margin: 0;
+    }
+  }
+}
+
+.contact-reply {
+  width: 80%;
+  max-width: 500px;
+  margin-left: auto;
+  margin-right: auto;
+  p {
+    padding-top: 40px;
+    text-align: left;
+    margin: 10px 0 5px 0
+  }
+  .reply {
+    border-top: 1px dotted #000;
+    border-bottom: 1px dotted #000;
+  }
+}
+
+// お問い合わせ完了
+.contact-done {
+  text-align: center;
 }
 
 // ページネーション
@@ -767,7 +929,7 @@ input[type="password"] {
   }
   .fish-name,
   .product-name {
-    font-size: 4vw;
+    font-size: 23px;
   }
 
   .sub-text{
@@ -779,6 +941,7 @@ input[type="password"] {
   }
   .main-content,
   .third-content {
+    width: 90%;
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
@@ -791,13 +954,13 @@ input[type="password"] {
   }
   .fish-img,
   .product-img {
-    height: 10%;
-    max-height: 350px;
+    height: 180px;
+    // max-height: 350px;
     width: 100%;
-    max-width: 350px;
+    // max-width: 350px;
   }
   .product-price{
-    padding-right: 20%;
+    // padding-right: 20%;
   }
   .buy {
     font-size: 200%;
@@ -826,21 +989,20 @@ input[type="password"] {
     padding-top: 0;
     margin-top: 10px;
   }
-  // ユーザー登録
-  // .create_user {
-  //   font-size: 30px;
-  //   text-align: center;
-  //   margin-bottom: 30px;
-  // }
-  // .user {
-  //   padding-top: 20px;
-  // }
-  // お知らせ欄
   .news-content {
     width: 400px;
   }
   .news-img {
     width: 500px;
+  }
+
+  // お問い合わせ
+  .contact-content {
+    width: 400px;
+  }
+  // フォーム
+  .form {
+    width: 70%;
   }
 }
 
@@ -851,7 +1013,7 @@ input[type="password"] {
   }
   .fish-name,
   .product-name {
-    font-size: 3vw;
+    font-size: 20px;
   }
   .map{
     width: 60%;
@@ -859,6 +1021,15 @@ input[type="password"] {
   }
   .news-content {
     width: 500px;
+  }
+
+  // お問い合わせ
+  .contact-content{
+    width: 500px;
+  }
+  // フォーム
+  .form {
+    width: 50%;
   }
 }
 
