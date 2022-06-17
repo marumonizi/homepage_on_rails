@@ -32,7 +32,7 @@ fourth_old:
   user: admin_user
 
 most_recent:
-  title: "most_old"
+  title: "most_recent"
   content: "test_content"
   created_at: <%= Time.zone.now %>
   image: "test/jpg"

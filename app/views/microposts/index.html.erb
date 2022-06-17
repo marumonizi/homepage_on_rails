@@ -2,7 +2,7 @@
 <div class="sp-page">
   <div class="news">
     <div class="page-title">お知らせ一覧</div>
-      <% @microposts.each do |micropost| %>
+    <% @microposts.each do |micropost| %>
       <%= link_to micropost, class:"news-content" do %>
         <div class="news-date"><%= micropost.created_at.to_s(:datetime_jp) %></div>
         <div class="news-title">

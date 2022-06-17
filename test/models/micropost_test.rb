@@ -33,7 +33,7 @@ class MicropostTest < ActiveSupport::TestCase
   end
   
   # 作成日の降順
-  test "order should be most recent first" do
+  test "order should be first most recent " do
     assert_equal microposts(:most_recent), Micropost.first
   end
 end

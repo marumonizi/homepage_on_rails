@@ -4,6 +4,7 @@ class SiteLayoutTest < ActionDispatch::IntegrationTest
   def setup
     @user = users(:admin_user)
     @micropost = microposts(:most_recent)
+    @contact = contacts(:first_contact)
   end
 
   # ホーム
@@ -13,7 +14,7 @@ class SiteLayoutTest < ActionDispatch::IntegrationTest
     assert_template 'static_pages/home'
     assert_select 'a[href=?]', root_path,  count: 3
     assert_select 'a[href=?]', about_path, count: 2
-    assert_select 'a[href=?]', contact_path, count: 2
+    assert_select 'a[href=?]', new_contact_path, count: 2
     assert_select 'a[href=?]', access_path, count: 2
     assert_select 'a[href=?]', microposts_path, count: 2
     assert_select 'a.news-content', count:5
@@ -46,4 +47,29 @@ class SiteLayoutTest < ActionDispatch::IntegrationTest
     end
     assert_select 'a[href=?]', root_path, count: 4
   end
+
+  # お問い合わせ詳細
+  test "contact show link" do
+    log_in_as(@user)
+    get contact_path(@contact)
+    assert_template 'contacts/show'
+    assert 'div.contact-name', @contact.name
+    assert 'div.message', @contact.message
+    assert_select 'a[href=?]', root_path, count: 4
+    assert_select 'a[href=?]', contacts_path
+  end
+
+  # お問い合わせ一覧
+  test "contact index link" do
+    log_in_as(@user)
+    get contacts_path
+    assert_template 'contacts/index'
+    assert 'nav.pagination'
+    Contact.page(1).each do |contact|
+      assert_select 'a[href=?]', contact_path(contact)
+    end
+    assert_select 'a[href=?]', root_path, count: 4
+  end
+
+
 end
