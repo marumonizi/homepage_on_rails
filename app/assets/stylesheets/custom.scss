@@ -1,9 +1,9 @@
 /* 全体フォント指定 */
-body {
+html,body {
   font-family: 'Noto Serif JP', serif;
   margin-top: 0;
   padding: 0;
-  min-height: 100vh;
+  height:100%
 }
 
 /* ヘッダー */
@@ -579,28 +579,46 @@ button {
 }
 
 // フォーム
-.create_form {
+.create-form {
   text-align: center;
   width: 100%;
   margin-left: auto;
   margin-right: auto;
 }
+
 .form {
   display: inline-block;
   text-align: center;
   width: 100%;
 }
 
-.name-form,
-.password-form,
-.email-form,
-.content-form,
-.message-form,
-.category-form {
+.create-title {
+  font-size: 30px;
+  text-align: center;
+  padding-top: 100px;
+  margin-bottom: 30px;
+}
+
+.form-required{
+  font-size: 15px;
+  span {
+    color: rgb(244, 71, 71);
+  }
+}
+
+.form-template {
   text-align: left;
-  width: 200px;
+  width: 50%;
+  min-width: 200px;
   margin-right: auto;
   margin-left: auto;
+  margin-bottom: 20px;
+  p {
+    font-size: 14px;
+    color: rgb(244, 71, 71);
+    display: inline-block;
+    margin-left: 5px;
+  }
 }
 
 input[type="text"] {
@@ -612,7 +630,7 @@ input[type="password"] {
 
 #contact_message,
 #micropost_content{
-  height: 200px;
+  height: 300px;
 }
 
 #contact_category {
@@ -623,37 +641,21 @@ input[type="password"] {
   // float: right;
 }
 
-
-.title-form {
-  width: 90%;
-  margin-bottom: 20px;
-  margin-left: auto;
-  margin-right: auto;
+#contact_reply {
+  height: 200px;
 }
-
-.content-form { 
-  width: 90%;
-  min-width: 200px;
-  margin-bottom: 20px;
-}
-
-.name-form,
-.message-form,
-.password-form,
-.email-form,
-.category-form {
-  width: 60%;
-  min-width: 200px;
-  margin-bottom: 20px;
-}
-
 
 .alert {
-  text-align: left;
-  width: 300px;
+  text-align: center;
+  width: 50%;
+  min-width: 200px;
   margin-left: auto;
   margin-right: auto;
-  padding: 5px;
+}
+
+.form-alert {
+  color: rgb(244, 71, 71);
+  font-size: 15px;
 }
 
 .create_btn {
@@ -680,14 +682,6 @@ input[type="password"] {
    font-style: 15px;
   }
 
-}
-
-// アカウント登録
-.create_user {
-  font-size: 30px;
-  text-align: center;
-  padding-top: 100px;
-  margin-bottom: 30px;
 }
 
 // ユーザー
@@ -788,9 +782,9 @@ input[type="password"] {
   margin-right: auto;
   p {
     text-align: left;
-    margin: 10px 0 5px 0
+    margin: 15px 0 5px 0
   }
-  .message {
+  .message, .category {
     padding: 5px;
     border-top: 1px dotted #000;
     border-bottom: 1px dotted #000;
@@ -803,10 +797,10 @@ input[type="password"] {
 .contact-reply {
   width: 80%;
   max-width: 500px;
+  margin-top: 40px;
   margin-left: auto;
   margin-right: auto;
   p {
-    padding-top: 40px;
     text-align: left;
     margin: 10px 0 5px 0
   }
@@ -858,6 +852,7 @@ input[type="password"] {
 // ページ共通
 .sp-page{
   padding-top: 70px;
+  min-height: 80vh;
 }
 
 .page-title {

@@ -1,14 +1,10 @@
 ja:
   activerecord:
-    models:
-      user: ユーザー
-      micropost: マイクロポスト
-      contact: お問い合わせ
     attributes:
       user:
         name: アカウント名
         password: パスワード
-        password_confirmation: 確認用パスワード
+        password_confirmation: パスワード
       micropost:
         title: タイトル
         content: 内容
@@ -16,4 +12,17 @@ ja:
         name: お名前
         email: メールアドレス
         message: お問合せ内容
-        category: お問い合わせ種類
+        category: ""
+    errors:
+      models:
+        user:
+          attributes:
+            name:
+              taken: この%{attribute}は既に存在しています
+              blank: "%{attribute}を入力してください"
+              format: '%{message}'
+            password_confirmation:
+              confirmation: が一致しません
+        contact:
+          blank: を入力してください
+          invalid: が正しくありません

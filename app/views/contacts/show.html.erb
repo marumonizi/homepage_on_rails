@@ -4,7 +4,9 @@
     <div class="page-title">お問い合わせ</div>
       <div class="contact-name"><%= @contact.name %>様</div>
       <div class="contact-message">
-        <p>お問合せ内容</p>
+        <p>お問い合わせ種類</p>
+        <div class="category"><%= simple_format(@contact.category) %></div>
+        <p>内容</p>
         <div class="message"><%= simple_format(@contact.message) %></div>
       </div>
     </div>
@@ -12,7 +14,7 @@
       <% if @contact.replyed? %>
         <div class="contact-reply">
           <p>返信内容</p>
-          <div class="reply"><%= @contact.reply %></div>
+          <div class="reply"><%= simple_format(@contact.reply) %></div>
         </div>
       <% else %>
         <%= render 'update_form' %>

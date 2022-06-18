@@ -1,23 +1,33 @@
-<div class="create_user">
-  お知らせ投稿
-</div>
+<%= provide(:title, "お知らせ投稿") %>
 
-<div class="create_form">
+<div class="create-form">
   <div class="form">
+    <div class="create-title">
+      お知らせ投稿
+    </div>
     <%= form_with(model: @micropost, local: true) do |f| %>
 
       <%= render 'shared/error_form', object: f.object %>
-      <div class="title-form">
-        <%= f.label :タイトル, class:"form-label" %>
+
+      <p class="form-required"><span>※</span>は必須項目です</p>
+
+      <div class="form-template">
+        <%= f.label :タイトル, class:"form-label" %><p>※</p>
+        <% if @micropost.errors.include?(:title) %>
+          <div class="form-alert"><%= @micropost.errors.full_messages_for(:title).first %></div>
+        <% end %>
         <%= f.text_field :title, class:"form-control", placeholder: "100文字以内"  %>
       </div>
 
-      <div class="content-form">
-        <%= f.label :投稿内容, class:"form-label" %>
+      <div class="form-template">
+        <%= f.label :投稿内容, class:"form-label" %><p>※</p>
+        <% if @micropost.errors.include?(:content) %>
+          <div class="form-alert"><%= @micropost.errors.full_messages_for(:content).first %></div>
+        <% end %>
         <%= f.text_area :content, class:"form-control", placeholder: "1000文字以内" %>
       </div>
 
-      <div class="file_field">
+      <div class="form-template">
         <%= f.label :画像アップロード, class:"form-label" %>
         <%= f.file_field :image, accept: 'image/png, image/gif, image/jpeg' %>
       </div>
