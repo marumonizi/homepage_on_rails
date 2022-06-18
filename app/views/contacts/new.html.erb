@@ -1,32 +1,44 @@
 <%= provide(:title, "お問い合わせ") %>
-
-
-<div class="create_form">
+<div class="create-form">
   <div class="form">
-    <div class="create_user">
+    <div class="create-title">
       お問い合わせフォーム
     </div>
     <%= form_with(model: @contact, local: true) do |f| %>
 
       <%= render 'shared/error_form', object: f.object %>
 
-      <div class="name-form">
-        <%= f.label :お名前, class:"form-label" %>
+      <p class="form-required"><span>※</span>は必須項目です</p>
+
+      <div class="form-template">
+        <%= f.label :お名前, class:"form-label" %><p>※</p>
+        <% if @contact.errors.include?(:name) %>
+          <div class="form-alert"><%= @contact.errors.full_messages_for(:name).first %></div>
+        <% end %>
         <%= f.text_field :name, autofocus: true, class:"form-control", placeholder: "例：　穂高　太郎"  %>
       </div>
 
-      <div class="email-form">
-        <%= f.label :メールアドレス, class:"form-label" %>
+      <div class="form-template">
+        <%= f.label :メールアドレス, class:"form-label" %><p>※</p>
+        <% if @contact.errors.include?(:email) %>
+          <div class="form-alert"><%= @contact.errors.full_messages_for(:email).first %></div>
+        <% end %>
         <%= f.text_field :email, class:"form-control", placeholder: "例：　XXX@YYY.com"%>
       </div>
 
-      <div class="category-form">
-        <%= f.label :お問い合わせ種類 %>
+      <div class="form-template">
+        <%= f.label :お問い合わせ種類 %><p>※</p>
+        <% if @contact.errors.include?(:category) %>
+          <div class="form-alert"><%= @contact.errors.full_messages_for(:category).first %></div>
+        <% end %>
         <%= f.select :category, ["魚について", "商品について", "会社について", "当サイトについて", "その他"], { include_blank: "選択してください" } %>
       </div>
 
-      <div class="message-form">
-        <%= f.label :お問合せ内容, class:"form-label" %>
+      <div class="form-template">
+        <%= f.label :お問合せ内容, class:"form-label" %><p>※</p>
+        <% if @contact.errors.include?(:message) %>
+          <div class="form-alert"><%= @contact.errors.full_messages_for(:message).first %></div>
+        <% end %>
         <%= f.text_area :message, class:"form-control" %>
       </div>
 

@@ -2,7 +2,7 @@ class User < ApplicationRecord
   has_many :microposts
   attr_accessor :remember_token
   validates :name, presence: true, length: { maximum: 15 }, uniqueness: true
-  validates :password, presence: true, length: { in: 6..50, message: "6文字以上のパスワードを設定してください。"}, on: :create
+  validates :password, presence: true, length: { in: 6..50, message: "6文字以上のパスワードを設定してください"}, on: :create
   validates :password_confirmation, presence: true
   has_secure_password
 

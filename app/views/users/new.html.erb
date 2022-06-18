@@ -1,25 +1,37 @@
-<div class="create_user">
-  アカウント登録
-</div>
-
-<div class="create_form">
+<% provide(:title, "アカウント新規登録") %>
+<div class="create-form">
   <div class="form">
+    <div class="create-title">
+      アカウント登録
+    </div>
     <%= form_with(model: @user, local: true) do |f| %>
 
       <%= render 'shared/error_form', object: f.object %>
 
-      <div class="name-form">
-        <%= f.label :アカウント名, class:"form-label" %>
+      <p class="form-required"><span>※</span>は必須項目です</p>
+
+      <div class="form-template">
+        <%= f.label :アカウント名, class:"form-label" %><p>※</p>
+        <% if @user.errors.include?(:name) %>
+          <div class="form-alert"><%= @user.errors.full_messages_for(:name).first %></div>
+        <% end %>
         <%= f.text_field :name, class:"form-control", placeholder: "例：穂高　太郎" %>
       </div>
 
-      <div class="password-form">
-        <%= f.label :パスワード, class:"form-label" %>
+      <div class="form-template">
+        <%= f.label :パスワード, class:"form-label" %><p>※</p>
+        <% if @user.errors.include?(:password) %>
+          <div class="form-alert"><%= @user.errors.full_messages_for(:password).first %></div>
+        <% else %>
+          <% if @user.errors.include?(:password_confirmation) %>
+            <div class="form-alert"><%= @user.errors.full_messages_for(:password_confirmation).first %></div>
+          <% end %>
+        <% end %>
         <%= f.password_field :password, class:"form-control", placeholder: "6文字以上" %>
       </div>
     
-      <div class="password-form">
-        <%= f.label :パスワード（確認用）, class:"form-label" %>
+      <div class="form-template">
+        <%= f.label :パスワード（確認用）, class:"form-label" %><p>※</p>
         <%= f.password_field :password_confirmation, class:"form-control" %>
       </div>
 
