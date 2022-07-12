@@ -1,0 +1,36 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+nizimasu_sioyaki:
+  name: "虹鱒の塩焼き"
+  price: "300"
+  created_at: <%= Time.zone.now %>
+  introduction: "美味しい魚"
+  images: ["test.jpg", "image.jpeg"]
+
+nizimasu_kanroni:
+  name: "虹鱒の甘露煮"
+  price: "300"
+  created_at: <%= 2.hours.ago %>
+  introduction: "美味しい魚"
+  images: ["test.jpg", "image.jpeg"]
+
+iwana_sioyaki:
+  name: "岩魚の塩焼き"
+  price: "300"
+  created_at: <%= 2.days.ago %>
+  introduction: "美味しい魚"
+  images: ["test.jpg", "image.jpeg"]
+
+iwana_kanroni:
+  name: "岩魚の甘露煮"
+  price: "300"
+  created_at: <%= 2.weeks.ago %>
+  introduction: "美味しい魚"
+  images: ["test.jpg", "image.jpeg"]
+
+sinsyusalmon_osasimi:
+  name: "信州サーモンの切り身"
+  price: "5000"
+  created_at: <%= 2.months.ago %>
+  introduction: "美味しい魚"
+  images: ["test.jpg", "image.jpeg"]

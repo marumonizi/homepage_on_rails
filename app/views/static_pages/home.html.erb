@@ -4,7 +4,7 @@
   <%= render 'first' %>
 
   <%= render 'news' %>
-
+  
   <%= render 'main' %>
 
   <%= render 'second' %>
@@ -16,34 +16,6 @@
 
 
 <!-- jquery -->
-
-
-<script>
-function checkBreakPoint() {
-	w = $(window).width();
-	if (w <= 600) {
-		// スマホ向け（767px以下のとき）
-		$('.main-content,.third-content').not('.slick-initialized').slick({
-			//スライドさせる
-			dots: true,
-      centerMode: true,
-      centerPadding: '20%',
-      slidesToShow: 1
-		});
-	} else {
-		// PC向け
-		$('.main-content,.third-content').slick('unslick');
-	}
-}
-// ウインドウがリサイズする度にチェック
-$(window).resize(function(){
-	checkBreakPoint();
-});
-// 初回チェック
-checkBreakPoint();
-
-</script>
-
 <script>
   (window.onload = function() {
   

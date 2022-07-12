@@ -1,0 +1,35 @@
+<div class="mycart_show">
+  <% @cart_items.each do |cart_item| %>
+    <div class="mycart_show-detail">
+      <div class="mycart_show-img">
+        <%= link_to cart_item.product do %>
+          <%= image_tag cart_item.product.images[0].to_s %>
+        <% end %>
+      </div>
+      <div class="mycart_product-info">
+        <div class="mycart_show-name">
+          <%= cart_item.product.name %>
+        </div>
+        <div class="mycart_show-price">
+          <span>価格</span><%= cart_item.product.price %><span>円/匹 (税込)</span> 
+        </div>
+      </div>
+      <div class="mycart_show-update">
+        <%= link_to "削除", delete_item_path(cart_item, product_id: cart_item.product.id), method: :delete%>
+        <%= form_with(model: @cart_item, local: true, url: update_item_path, method: :post) do |f|%>
+          <%= f.hidden_field :product_id, value: cart_item.product.id %>
+          <%= f.label :数量, class: %>
+          <%= f.select :quantity, *[0..50], {selected: cart_item.quantity} %>
+          <%= f.submit "更新" %>
+        <% end %>
+      </div>
+    </div>
+  <% end %>
+  <div class="mycart_show-total">
+    <span class="total">合計</span><%= @total %><span>円 (税込 送料別)</span> 
+  </div>
+
+  <div>
+  pay
+  </div>
+</div>

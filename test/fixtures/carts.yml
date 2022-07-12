@@ -1,0 +1,13 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+cart1:
+  user: admin_user
+
+cart2:
+  user: no_admin_user
+
+cart3:
+  user: michael
+
+cart4:
+  id: 4

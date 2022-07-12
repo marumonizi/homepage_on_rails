@@ -21,11 +21,16 @@
         <span>自動ログインを有効にする</span>
         <%= f.check_box :remember_me %>
       <% end %>
+
       <div class="create_btn">
         <%= f.submit "ログイン", class:"btn btn-primary mb-3" %>
       </div>
 
 
     <% end %>
+      <div class="session_new_login">
+        会員登録がお済みでない方は<%= link_to "こちら", new_user_path %>から
+      </div>
+      
   </div>
 </div>

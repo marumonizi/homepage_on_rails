@@ -1,26 +1,15 @@
 <div class="third">
   <h3 id="section4">商品一覧</h3>
-  <div class="third-content ">
-    <div class="product">
-      <div class="product-name">塩焼き</div>
-      <div>
-        <%= image_tag "sioyaki.jpg", class: "product-img" %>
+  <div class="third-content">
+    <% @products.first(3).each do |p| %>
+      <div class="top_product">
+        <div class="top_product-name"><%= p.name %></div>
+        <div ><%= image_tag p.images[0].to_s, class:"top_product-img" %></div>
+        <div class="top_product-price"><%= p.price %>/１匹〜</div>
       </div>
-      <div class="product-price">２００円/１匹〜</div>
-    </div>
-    <div class="product">
-      <div class="product-name">甘露煮</div>
-      <div>
-        <%= image_tag "sioyaki.jpg", class: "product-img" %>
-      </div>
-      <div class="product-price">２００円/<span>１匹〜</span></div>
-    </div>
-    <div class="product">
-      <div class="product-name">フライ</div>
-      <div>
-        <%= image_tag "sioyaki.jpg", class: "product-img" %>
-      </div>
-      <div class="product-price">２００円/１匹〜</div>
-    </div>
+    <% end %>
   </div>
+    <div class="top_prosucts-link">
+      <%= link_to "商品一覧はこちら", products_path %>
+    </div>
 </div>

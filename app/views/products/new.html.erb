@@ -1,0 +1,49 @@
+<%= provide(:title, "商品登録") %>
+
+<div class="create-form">
+  <div class="form">
+    <div class="create-title">
+      商品登録
+    </div>
+    <%= form_with(model: @product, local: true) do |f| %>
+
+      <%= render 'shared/error_form', object: f.object %>
+
+      <p class="form-required"><span>※</span>は必須項目です</p>
+
+      <div class="form-template">
+        <%= f.label :商品名, class:"form-label" %><p>※</p>
+        <% if @product.errors.include?(:name) %>
+          <div class="form-alert"><%= @product.errors.full_messages_for(:name).first %></div>
+        <% end %>
+        <%= f.text_field :name, class:"form-control", placeholder: "100文字以内"  %>
+      </div>
+
+      <div class="form-template">
+        <%= f.label :価格, class:"form-label" %><p>※</p>
+        <% if @product.errors.include?(:price) %>
+          <div class="form-alert"><%= @product.errors.full_messages_for(:price).first %></div>
+        <% end %>
+        <%= f.text_field :price, class:"form-control", placeholder: "1000文字以内" %>
+      </div>
+
+      <div class="form-template">
+        <%= f.label :商品説明, class:"form-label" %><p>※</p>
+        <% if @product.errors.include?(:introduction) %>
+          <div class="form-alert"><%= @product.errors.full_messages_for(:introduction).first %></div>
+        <% end %>
+        <%= f.text_area :introduction, class:"form-control", placeholder: "1000文字以内" %>
+      </div>
+
+      <div class="form-template">
+        <%= f.label :画像アップロード, class:"form-label" %>
+        <%= f.file_field :images, accept: 'image/png, image/gif, image/jpeg', multiple: true %>
+      </div> 
+
+    
+      <div class="create_btn">
+        <%= f.submit "投稿", class:"btn btn-primary mb-3" %>
+      </div>
+    <% end %>
+  </div>
+</div>

@@ -6,7 +6,6 @@ class UserLoginTest < ActionDispatch::IntegrationTest
     @user = users(:admin_user)
   end
   
-  # 名前もパスワードも空
   test "should be presence name" do
     get login_path
     assert_template 'sessions/new'
@@ -18,7 +17,6 @@ class UserLoginTest < ActionDispatch::IntegrationTest
     assert flash.empty?
   end
     
-  # 名前とパスワードが不一致
   test "should be presence password" do
     get login_path
     assert_template 'sessions/new'
@@ -30,7 +28,6 @@ class UserLoginTest < ActionDispatch::IntegrationTest
     assert flash.empty?
   end
 
-  # 名前とパスワードが空
   test "should be presence name and password" do
     get login_path
     assert_template 'sessions/new'
@@ -42,7 +39,6 @@ class UserLoginTest < ActionDispatch::IntegrationTest
     assert flash.empty?
   end
   
-  # 名前とパスワードが不一致
   test "login with invalid password" do
     get login_path
     assert_template 'sessions/new'
@@ -54,7 +50,6 @@ class UserLoginTest < ActionDispatch::IntegrationTest
     assert flash.empty?
   end
     
-  # アカウントが存在しない
   test "login with invalid name" do
     get login_path
     assert_template 'sessions/new'
@@ -66,8 +61,6 @@ class UserLoginTest < ActionDispatch::IntegrationTest
     assert flash.empty?
   end
 
-
-  # 正しいログインとログアウト
   test "login with valid information " do
     get login_path
     assert_template 'sessions/new'
@@ -83,8 +76,6 @@ class UserLoginTest < ActionDispatch::IntegrationTest
     assert_template 'static_pages/home'
   end
 
-  
-  # 自動ログイン0FF
   test "login without remembering" do
     log_in_as(@user, remember_me: '1')
     delete logout_path
@@ -92,7 +83,6 @@ class UserLoginTest < ActionDispatch::IntegrationTest
     assert_empty cookies[:remember_token]
   end
 
-  # 自動ログイン0N
   test "login with remembering" do
     log_in_as(@user, remember_me: '1')
     assert_not_empty cookies[:remember_token]

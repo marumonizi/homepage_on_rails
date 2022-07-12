@@ -1,0 +1,45 @@
+<%= provide(:title, "商品詳細") %>
+<div class="sp-page">
+  <div class="product_show">
+    <div class="product_show-detail">
+      <div class="product_show-name">
+        <%= @product.name%>
+      </div>
+      <div class="product_show-price">
+        <%= @product.price %>円/匹 (税込)
+      </div>
+      <div class="product_show-slide">
+        <% @product.images.each do |img| %>
+          <%= image_tag img.to_s, class:"product_show-img" %>
+        <% end %>
+      </div>
+
+      <div class="product_show-introduction">
+        <%= simple_format(@product.introduction) %>
+      </div>
+
+      <div class="product_show-cart">
+        <div class="product_cart-price">
+          <%= @product.price %>円/匹 (税込)
+        </div>
+        <%= form_with(model: @cart_item, local: true, url: add_item_path) do |f| %>
+          
+          <%= f.hidden_field :product_id, value: @product.id %>
+          
+          <%= f.label :数量 %>
+          <%= f.select :quantity, [*1..50] %>
+
+          <%= f.submit "カートへ追加", class:"product_show-btn"%>
+        <% end %>
+      </div>
+    </div>
+  </div>
+  <div class="link-tab">
+    <div class="link">
+      <%= link_to "TOPへ戻る", '/' %>
+    </div>
+    <div class="link">
+      <%= link_to "商品一覧へ戻る", '/products' %>
+    </div>
+  </div>
+</div>

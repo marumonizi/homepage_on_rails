@@ -1,0 +1,18 @@
+
+<%= provide(:title, "カート") %>
+<div class="sp-page">
+  <div class="page-title">カート</div>
+    <% if @cart_items.blank? %>
+      <div class="mycart_blank">カート内に商品がありません</div>
+    <% else %>
+      <%= render 'mycart' %>
+    <% end %>
+  <div class="link-tab">
+    <div class="link">
+      <%= link_to "商品一覧へ", '/products' %>
+    </div>
+    <div class="link">
+      <%= link_to "TOPへ戻る", '/' %>
+    </div>
+  </div>
+</div>

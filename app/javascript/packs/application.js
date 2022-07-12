@@ -11,12 +11,10 @@ import "./slick/slick.min.js"
 
 import "bootstrap"
 import "../stylesheets/application"
+import "./slick"
+import "./flash_error"
 
 Rails.start()
 ActiveStorage.start()
 
 require('jquery')
-
-$(function(){
-  setTimeout("$('.notice').fadeOut('slow')", 3000);
-});
