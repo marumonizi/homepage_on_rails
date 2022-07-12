@@ -1,0 +1,21 @@
+<%= provide(:title, "商品一覧") %>
+<div class="sp-page">
+  <div class="page-title">商品一覧</div>
+  <div class="product_index">
+    <% @products.each do |product| %>
+      <%= link_to product, class:"product_index-content" do %>
+        <%= image_tag product.images[0].to_s %>
+        <div class="product_index-name"><%= product.name%></div>
+        <div class="product_index-price">
+          <%= product.price%>円/匹 (税込)
+        </div>
+        <div class="product_index-introduction">
+          <%= simple_format(product.introduction) %>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+  <div class="link">
+    <%= link_to "TOPへ戻る", '/' %>
+  </div>
+</div>

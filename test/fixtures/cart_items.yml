@@ -1,0 +1,19 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+cart_item1:
+  cart: cart1
+  product: nizimasu_sioyaki
+  quantity: 3
+  created_at: <%= Time.zone.now %>
+
+cart_item3:
+  cart: cart1
+  product: nizimasu_kanroni
+  quantity: 2
+  created_at: <%= 2.hours.ago %>
+
+cart_item3:
+  cart: cart1
+  product: iwana_sioyaki
+  quantity: 1
+  created_at: <%= 2.days.ago %>

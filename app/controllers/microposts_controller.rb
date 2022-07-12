@@ -10,7 +10,7 @@ class MicropostsController < ApplicationController
   end
 
   def create
-    @micropost = current_user.microposts.build(micropost_params)
+    @micropost = current_user.microposts.new(micropost_params)
     if @micropost.save
       flash[:notice] = "投稿されました"
       redirect_to root_path

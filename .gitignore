@@ -41,5 +41,3 @@ yarn-debug.log*
 
 # アップロードされたテスト画像を無視する
 /public/uploads
-# 環境変数
-/.env

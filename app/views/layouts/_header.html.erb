@@ -4,8 +4,17 @@
   <h2>虹鱒、岩魚、信州サーモンの加工と販売</h2>
 </div>
 <div class="logout-link">
-  <% if logged_in? %>
+  <% if logged_in? && current_user.admin? %>
     <%= link_to "ログアウト", "/logout", method: :delete %>
+    <%= link_to "お知らせ投稿", new_micropost_path %>
+    <%= link_to "お問い合わせ一覧", contacts_path %>
+    <%= link_to "商品登録", new_product_path %>
+    <%= link_to "カート", my_cart_path %>
+  <% elsif logged_in? %>
+    <%= link_to "ログアウト", "/logout", method: :delete %>
+    <%= link_to "カート", my_cart_path %>
+  <% else %>
+    <%= link_to "カート", my_cart_path %>
   <% end %>
 </div>
 
@@ -17,6 +26,7 @@
 <nav class= "nav-list">
   <ul class="menu">
     <li class="menu-list"><%= link_to "TOP", "/" %></li>
+    <li class="menu-list"><%= link_to "商品一覧", "/products" %></li>
     <li class="menu-list"><%= link_to "お知らせ一覧", "/microposts" %></li>
     <li class="menu-list"><%= link_to "会社概要", "/about" %></li>
     <li class="menu-list"><%= link_to "お問い合わせ", new_contact_path %></li>

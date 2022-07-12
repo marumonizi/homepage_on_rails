@@ -13,6 +13,9 @@ ja:
         email: メールアドレス
         message: お問合せ内容
         category: ""
+      product:
+        name: 商品名
+        price: 価格
     errors:
       models:
         user:
