@@ -1,10 +1,10 @@
 class User < ApplicationRecord
+  VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-]+(\.[a-z\d\-]+)*\.[a-z]+\z/
   has_many :microposts, dependent: :destroy
   has_one :cart, dependent: :destroy
   validates :name, presence: true, length: { maximum: 15 }
   validates :password, presence: true, length: { in: 6..50, message: "6文字以上のパスワードを設定してください"}, on: :create
   validates :password_confirmation, presence: true
-  VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-]+(\.[a-z\d\-]+)*\.[a-z]+\z/
   validates :email, presence: true, format: { with: VALID_EMAIL_REGEX, multiline: true }, uniqueness: true
   attr_accessor :remember_token, :activation_token
   before_create :create_activation_digest
