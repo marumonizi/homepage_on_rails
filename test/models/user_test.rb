@@ -3,7 +3,7 @@ require "test_helper"
 class UserTest < ActiveSupport::TestCase
 
   def setup
-    @user = User.new(name: "test", password:"123456", password_confirmation: "123456")
+    @user = User.new(name: "test", email:"test@email.com", password:"123456", password_confirmation: "123456")
   end
 
   
@@ -44,7 +44,32 @@ class UserTest < ActiveSupport::TestCase
     assert_not @user.valid?
   end
 
+  test "should presence user email" do
+    @user.email = ""
+    assert_not @user.valid?
+  end
+
+  test "shoud not accept invalid user email format" do
+    invalid_addresses = %w[test,,test@example.com test@example..com]
+    invalid_addresses.each do |address|
+      @user.email = address
+      assert_not @user.valid? 
+    end
+  end
+
+  test "shoud accept valid user email format" do
+    invalid_addresses = %w[test@example.com test@example.com]
+    invalid_addresses.each do |address|
+      @user.email = address
+      assert @user.valid? 
+    end
+  end
+
   test "should be valid" do
     assert @user.valid?
+  end
+
+  test "authenticated? should return false for a user with nil digest" do
+    assert_not @user.authenticated?(:remember, '')
   end
 end

@@ -1,8 +1,8 @@
-<% provide(:title, "アカウント新規登録") %>
+<% provide(:title, "新規会員登録") %>
 <div class="create-form">
   <div class="form">
     <div class="create-title">
-      アカウント登録
+      新規会員登録
     </div>
     <%= form_with(model: @user, local: true) do |f| %>
 
@@ -11,11 +11,19 @@
       <p class="form-required"><span>※</span>は必須項目です</p>
 
       <div class="form-template">
-        <%= f.label :アカウント名, class:"form-label" %><p>※</p>
+        <%= f.label :お名前, class:"form-label" %><p>※</p>
         <% if @user.errors.include?(:name) %>
           <div class="form-alert"><%= @user.errors.full_messages_for(:name).first %></div>
         <% end %>
         <%= f.text_field :name, class:"form-control", placeholder: "例：穂高　太郎" %>
+      </div>
+
+      <div class="form-template">
+        <%= f.label :メールアドレス, class:"form-label" %><p>※</p>
+        <% if @user.errors.include?(:email) %>
+          <div class="form-alert"><%= @user.errors.full_messages_for(:email).first %></div>
+        <% end %>
+        <%= f.text_field :email, class:"form-control", placeholder: "例：hotaka@kyodo.com" %>
       </div>
 
       <div class="form-template">
@@ -36,7 +44,7 @@
       </div>
 
       <div class="create_btn">
-        <%= f.submit "アカウント作成", class:"btn btn-primary mb-3" %>
+        <%= f.submit "登録", class:"btn btn-primary mb-3" %>
       </div>
     <% end %>
   </div>

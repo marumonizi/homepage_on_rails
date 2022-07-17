@@ -4,6 +4,7 @@ class ContactUpdateTest < ActionDispatch::IntegrationTest
   def setup
     @user = users(:admin_user)
     @contact = contacts(:first_contact)
+    ActionMailer::Base.deliveries.clear
   end
 
   test "should be presence reply" do

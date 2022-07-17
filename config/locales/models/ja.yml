@@ -2,9 +2,10 @@ ja:
   activerecord:
     attributes:
       user:
-        name: アカウント名
+        name: お名前
         password: パスワード
         password_confirmation: パスワード
+        email: メールアドレス
       micropost:
         title: タイトル
         content: 内容
@@ -20,10 +21,11 @@ ja:
       models:
         user:
           attributes:
-            name:
-              taken: この%{attribute}は既に存在しています
+            email:
+              taken: この%{attribute}は既に登録済みです
               blank: "%{attribute}を入力してください"
               format: '%{message}'
+              invalid: "%{attribute}が正しくありません"
             password_confirmation:
               confirmation: が一致しません
         contact:
