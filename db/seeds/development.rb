@@ -13,7 +13,8 @@ User.create!(
   password_confirmation: "password123",
   email: "azumino@taro.com",
   activated: true,
-  activated_at: Time.zone.now
+  activated_at: Time.zone.now,
+  reset_sent_at: Time.zone.now
 )
 
 12.times do |n|

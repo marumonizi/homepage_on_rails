@@ -1,0 +1,30 @@
+<%= provide(:title, "パスワード再設定手続き") %>
+<div class="create-form">
+  <div class="form">
+    <div class="create-title">
+      パスワード再設定
+    </div>
+    <div class="password_reset_new_info">
+      <ul>
+        <li>step1 ご登録済みのメールアドレスにパスワード再設定のご案内を送信</li>
+        <li>step2 メール内のリンクへアクセス</li>
+        <li>step3 パスワードを再設定</li>
+      </ul>
+    </div>
+    <%= form_with(url: password_resets_path, scope: :password_reset, local: true) do |f| %>
+
+      <div class="form-template">
+        <%= f.label :メールアドレス, class:"form-label" %>
+        <%= f.text_field :email, class:"form-control" %>
+      </div>
+
+      <div class="create_btn">
+        <%= f.submit "送信", class:"btn btn-primary mb-3" %>
+      </div>
+
+    <% end %>
+    <div class="session_new_login">
+      会員登録がお済みでない方は<%= link_to "こちら", new_user_path %>から
+    </div>
+  </div>
+</div>

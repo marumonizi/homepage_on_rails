@@ -5,6 +5,7 @@ admin_user:
   admin: true
   activated: true
   activated_at: <%= Time.zone.now %>
+  reset_sent_at: <%= Time.zone.now %>
 
 no_admin_user:
   name: no_admin
@@ -12,6 +13,7 @@ no_admin_user:
   email: no_admin@user.com
   activated: true
   activated_at: <%= Time.zone.now %>
+  reset_sent_at: <%= Time.zone.now %>
 
 michael:
   name: Michael Example
@@ -19,3 +21,4 @@ michael:
   email: micahel@example.com
   activated: true
   activated_at: <%= Time.zone.now %>
+  reset_sent_at: <%= Time.zone.now %>

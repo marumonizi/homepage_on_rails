@@ -14,12 +14,18 @@ class UserMailerTest < ActionMailer::TestCase
     assert_match CGI.escape(user.email), mail.html_part.body.encoded
   end
 
-  # test "password_reset" do
-  #   mail = UserMailer.password_reset
-  #   assert_equal "Password reset", mail.subject
-  #   assert_equal ["to@example.org"], mail.to
-  #   assert_equal ["from@example.com"], mail.from
-  #   assert_match "Hi", mail.body.encoded
-  # end
-
+  test "password_reset" do
+    user = users(:no_admin_user)
+    user.reset_token = User.new_token
+    mail = UserMailer.password_reset(user)
+    assert_equal "【穂高共同食品】パスワード再設定について", mail.subject
+    assert_equal [user.email], mail.to
+    assert_equal ["#{ Rails.application.credentials[:google][:user_name] }"], mail.from
+    assert_match user.name, mail.text_part.body.encoded
+    assert_match user.name, mail.html_part.body.encoded
+    assert_match CGI.escape(user.email), mail.text_part.body.encoded
+    assert_match CGI.escape(user.email), mail.html_part.body.encoded
+    assert_match (user.reset_sent_at + 1.hours).to_s(:datetime_jp_time), mail.text_part.body.encoded
+    assert_match (user.reset_sent_at + 1.hours).to_s(:datetime_jp_time), mail.html_part.body.encoded
+  end
 end

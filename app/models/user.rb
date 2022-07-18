@@ -6,7 +6,7 @@ class User < ApplicationRecord
   validates :password, presence: true, length: { in: 6..50, message: "6文字以上のパスワードを設定してください"}, on: :create
   validates :password_confirmation, presence: true
   validates :email, presence: true, format: { with: VALID_EMAIL_REGEX, multiline: true }, uniqueness: true
-  attr_accessor :remember_token, :activation_token
+  attr_accessor :remember_token, :activation_token, :reset_token
   before_create :create_activation_digest
   has_secure_password
 
@@ -40,6 +40,20 @@ class User < ApplicationRecord
 
   def send_activation_mail
     UserMailer.acount_activation(self).deliver_now
+  end
+
+  def create_reset_digest
+    self.reset_token = User.new_token
+    update_attribute(:reset_digest, User.digest(reset_token))
+    update_attribute(:reset_sent_at, Time.zone.now)
+  end
+
+  def send_password_reset_mail
+    UserMailer.password_reset(self).deliver_now
+  end
+
+  def passwort_reset_expired?
+    reset_sent_at < 1.hours.ago
   end
 
   private
