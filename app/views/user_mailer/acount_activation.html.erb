@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+  <html lang="ja">
+  <head>
+    <meta charset="UTF-8">
+  </head>
+  <body>
+    <p>-----------------------------------------------------</p>
+    <p>※まだ、会員登録手続きは完了していません！※</p>
+    <p>-----------------------------------------------------</p>
+    <p><%= @user.name %>様 この度は会員登録ありがとうございます。</p>
+    <p>現時点では「仮登録」の状態です。</p>
+    <p>下記リンクへアクセスし会員登録の本登録をしてください。</p>
+    <%= edit_acount_activation_url(@user.activation_token, email: @user.email) %>
+  </body>
+</html>

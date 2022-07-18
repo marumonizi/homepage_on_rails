@@ -1,6 +1,11 @@
 require "test_helper"
 
 class ContactCreateTest < ActionDispatch::IntegrationTest
+
+  def setup
+    ActionMailer::Base.deliveries.clear
+  end
+
   test "should be present contact name" do
     get new_contact_path
     assert_template 'contacts/new'

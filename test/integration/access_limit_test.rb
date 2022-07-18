@@ -7,7 +7,7 @@ class AccessLimitTest < ActionDispatch::IntegrationTest
     @michael = users(:michael)
   end
   
-  test "should redirect session show when not logged in" do
+  test "should redirect session user show when not logged in" do
     get user_path(@user)
     assert_redirected_to login_path
     follow_redirect!
@@ -34,7 +34,7 @@ class AccessLimitTest < ActionDispatch::IntegrationTest
     get users_path
     assert_redirected_to login_path
     follow_redirect!
-    assert_select 'div.danger', text:"ログインしてください"
+    assert_select 'div.danger', text:"管理用アカウントでログインしてください"
     assert_template 'sessions/new'
   end
   
@@ -59,7 +59,7 @@ class AccessLimitTest < ActionDispatch::IntegrationTest
     get new_micropost_path
     assert_redirected_to login_path
     follow_redirect!
-    assert_select 'div.danger', text:"ログインしてください"
+    assert_select 'div.danger', text:"管理用アカウントでログインしてください"
     assert_template 'sessions/new'
   end
 

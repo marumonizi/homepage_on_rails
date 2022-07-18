@@ -677,11 +677,12 @@ input[type="password"] {
 
 .create_btn {
   text-align: center;
+  margin-top: 20px;
+  margin-bottom: 20px;
 }
 
 .btn {
   width: 150px;
-  margin-top: 30px;
 }
 
 .consent {
@@ -698,7 +699,24 @@ input[type="password"] {
   p {
    font-style: 15px;
   }
+}
 
+.session_new-password_reset {
+  font-size: 15px;
+}
+
+.password_reset_new_info {
+  // width: 500px;
+  display: inline-block;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: left;
+  ul {
+    li {
+      font-size: 15px;
+      list-style: none;
+    }
+  }
 }
 
 // ユーザー
@@ -825,6 +843,12 @@ input[type="password"] {
     border-top: 1px dotted #000;
     border-bottom: 1px dotted #000;
   }
+}
+
+.contact_show-reply{
+  font-size: 30px;
+  margin-top: 25px;
+  text-align: center;
 }
 
 // お問い合わせ完了

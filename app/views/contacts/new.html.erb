@@ -15,7 +15,7 @@
         <% if @contact.errors.include?(:name) %>
           <div class="form-alert"><%= @contact.errors.full_messages_for(:name).first %></div>
         <% end %>
-        <%= f.text_field :name, autofocus: true, class:"form-control", placeholder: "例：　穂高　太郎"  %>
+        <%= f.text_field :name, autofocus: true, class:"form-control", placeholder: "例：穂高　太郎"  %>
       </div>
 
       <div class="form-template">
@@ -23,7 +23,7 @@
         <% if @contact.errors.include?(:email) %>
           <div class="form-alert"><%= @contact.errors.full_messages_for(:email).first %></div>
         <% end %>
-        <%= f.text_field :email, class:"form-control", placeholder: "例：　hotaka@kyodo.com"%>
+        <%= f.text_field :email, class:"form-control", placeholder: "例：hotaka@kyodo.com"%>
       </div>
 
       <div class="form-template">
